@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Context>
+<Context reloadable="true">
+	<Resource auth="Container" name="jdbc/oracle" type="javax.sql.DataSource"
+		driverClassName="oracle.jdbc.OracleDriver" username="Yuki"
+		password="Yuki1993" url="jdbc:oracle:thin:@localhost/XE" />
+</Context>
