@@ -35,15 +35,15 @@ public class ShowErrorSamary extends HttpServlet {
 		MessageLogic messageLogic = new MessageLogic();
 		// エラーメッセージリスト生成
 		List<MessageEntity> messageEntityList = new ArrayList<>();
-		// ホスト名のリスト
-		List<String> hostNameList = new ArrayList<>();
+		// 発生ノード/系列名のリスト
+		List<String> nodeNameList = new ArrayList<>();
 
 		try {
 			// エラーメッセージを全件取得
-			messageEntityList = messageLogic.selectAllMessages();
+			messageEntityList = messageLogic.searchAllMessages();
 
-			// ホスト名を全件取得
-			hostNameList = messageLogic.selectHostName();
+			// 発生ノード/系列名を全件取得
+			nodeNameList = messageLogic.searchAllNodeName();
 
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
@@ -51,9 +51,11 @@ public class ShowErrorSamary extends HttpServlet {
 			return;
 		}
 
-		// エラーメッセージのリストをセッションに登録
+		// セッション取得
 		HttpSession session = request.getSession();
-		session.setAttribute("hostNameList", hostNameList);
+		// 発生ノード/系列名をセッションに登録
+		session.setAttribute("nodeNameList", nodeNameList);
+		// エラーメッセージのリストをセッションに登録
 		session.setAttribute("messageEntityList", messageEntityList);
 
 		// エラーサマリ表示画面へフォワード
@@ -68,26 +70,23 @@ public class ShowErrorSamary extends HttpServlet {
 			throws ServletException, IOException {
 
 		// 検索条件を取得
-		String hostName = request.getParameter("hostName");
-		String status = request.getParameter("status");
-		String errorMessage = request.getParameter("errorMessage");
-		String cause = request.getParameter("cause");
+		String nodeName = request.getParameter("nodeName");
+		String productName = request.getParameter("productName");
+		String detail = request.getParameter("detail");
 
 		// 検索条件フォーム生成
 		SearchKeyForm searchKeyForm = new SearchKeyForm();
-		searchKeyForm.setHostName(hostName);
-		searchKeyForm.setStatus(status);
-		searchKeyForm.setErrorMessage(errorMessage);
-		searchKeyForm.setCause(cause);
+		searchKeyForm.setNodeName(nodeName);
+		searchKeyForm.setProductName(productName);
+		searchKeyForm.setDetail(detail);
 
 		// バリデート
 
 		// 検索条件をBeanに詰め替え
 		SearchKeyBean searchKeyBean = new SearchKeyBean();
-		searchKeyBean.setHostName(hostName);
-		searchKeyBean.setStatus(Integer.parseInt(status));
-		searchKeyBean.setErrorMessage(errorMessage);
-		searchKeyBean.setCause(cause);
+		searchKeyBean.setNodeName(nodeName);
+		searchKeyBean.setProductName(productName);
+		searchKeyBean.setDetail(detail);
 
 		// ロジック取得
 		MessageLogic messageLogic = new MessageLogic();
@@ -95,7 +94,8 @@ public class ShowErrorSamary extends HttpServlet {
 		List<MessageEntity> messageEntityList = new ArrayList<>();
 		try {
 			// AND検索
-			messageEntityList = messageLogic.selectMessagesByAndSearch(searchKeyBean);
+			messageEntityList = messageLogic.searchMessagesByAndSearch(searchKeyBean);
+
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
@@ -104,8 +104,6 @@ public class ShowErrorSamary extends HttpServlet {
 		// エラーメッセージのリストをセッションに登録
 		HttpSession session = request.getSession();
 		session.setAttribute("messageEntityList", messageEntityList);
-		// 選択したホスト名をリクエストスコープに登録
-		request.setAttribute("selectedHostName", hostName);
 
 		// エラーサマリ表示画面へフォワード
 		request.getRequestDispatcher("/WEB-INF/jsp/showErrorMessages.jsp").forward(request, response);

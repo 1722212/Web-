@@ -24,7 +24,7 @@ public class MessageLogic {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<MessageEntity> selectAllMessages() throws SQLException {
+	public List<MessageEntity> searchAllMessages() throws SQLException {
 
 		// メッセージのリストを生成
 		List<MessageEntity> messageEntityList = new ArrayList<>();
@@ -41,14 +41,42 @@ public class MessageLogic {
 		return messageEntityList;
 	}
 
+
+	/**
+	 * 発生ノード/系列名であいまい検索するメソッド
+	 * @throws SQLException
+	 */
+	public List<MessageEntity> searchByNodeName(String nodeName) throws SQLException{
+
+		// メッセージのリストを生成
+		List<MessageEntity> messageEntiyList = new ArrayList<>();
+		// DB接続
+		try(Connection con = ConnectionUtil.getConnection()){
+
+			// DAO生成
+			MessageDAO messageDAO = new MessageDAO();
+
+			// 取得
+			messageEntiyList = messageDAO.selectByNode(con, nodeName);
+		}
+
+		return messageEntiyList;
+	}
+
+
 	/**
 	 * AND検索するメソッド
+	 *
+	 * 指定できるキーは
+	 * ①発生ノード/系列
+	 * ②プロダクト名/モジュール名
+	 * ③詳細内容
 	 *
 	 * @param searchKeyBean
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<MessageEntity> selectMessagesByAndSearch(SearchKeyBean searchKeyBean) throws SQLException {
+	public List<MessageEntity> searchMessagesByAndSearch(SearchKeyBean searchKeyBean) throws SQLException {
 
 		// メッセージのリスト
 		List<MessageEntity> messageEntityList = new ArrayList<>();
@@ -66,14 +94,14 @@ public class MessageLogic {
 	}
 
 	/**
-	 * ホスト名を全件検索するメソッド
+	 * 発生ノード/系列名を全件検索するメソッド
 	 *
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<String> selectHostName() throws SQLException {
+	public List<String> searchAllNodeName() throws SQLException {
 		// ホスト名を格納するリスト
-		List<String> hostNameList = new ArrayList<>();
+		List<String> nodeNameList = new ArrayList<>();
 
 		// DB接続
 		try (Connection con = ConnectionUtil.getConnection()) {
@@ -81,9 +109,9 @@ public class MessageLogic {
 			// DAO生成
 			MessageDAO messageDAO = new MessageDAO();
 			// ホスト名取得
-			hostNameList = messageDAO.selectHostName(con);
+			nodeNameList = messageDAO.selectAllNodeName(con);
 		}
-		return hostNameList;
+		return nodeNameList;
 	}
 
 }

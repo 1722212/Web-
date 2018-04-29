@@ -9,68 +9,53 @@ package presentation.form;
 public class SearchKeyForm {
 
 	/**
-	 * ホスト名
+	 * 発生ノード/系列
 	 */
-	private String hostName;
+	private String nodeName;
 
 	/**
-	 * ステータス
+	 * プロダクト名/モジュール名
 	 */
-	private String status;
+	private String productName;
 
 	/**
-	 * エラーメッセージ
+	 * 詳細内容
 	 */
-	private String errorMessage;
+	private String detail;
 
-	/**
-	 * 原因
-	 */
-	private String cause;
-
-	public String getHostName() {
-		return hostName;
+	public String getNodeName() {
+		return nodeName;
 	}
 
-	public void setHostName(String hostName) {
-		this.hostName = hostName;
+	public void setNodeName(String nodeName) {
+		this.nodeName = nodeName;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public String getDetail() {
+		return detail;
 	}
 
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
-	}
-
-	public String getCause() {
-		return cause;
-	}
-
-	public void setCause(String cause) {
-		this.cause = cause;
+	public void setDetail(String detail) {
+		this.detail = detail;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("SearchKeyForm [hostName=");
-		builder.append(hostName);
-		builder.append(", status=");
-		builder.append(status);
-		builder.append(", errorMessage=");
-		builder.append(errorMessage);
-		builder.append(", cause=");
-		builder.append(cause);
+		builder.append("SearchKeyBean [nodeName=");
+		builder.append(nodeName);
+		builder.append(", productName=");
+		builder.append(productName);
+		builder.append(", detail=");
+		builder.append(detail);
 		builder.append("]");
 		return builder.toString();
 	}

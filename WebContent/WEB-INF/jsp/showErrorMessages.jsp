@@ -10,92 +10,121 @@
 <title>エラーサマリ</title>
 </head>
 <body>
-	<h3>エラーサマリ</h3>
-
-	<h2>検索</h2>
+	<h2>エラーサマリ</h2>
 	<form action="ShowErrorSamary" method="post">
+
+		<h3>検索ボックス</h3>
 		<table>
 			<tr>
-				<th>ホスト名</th>
-				<td><select name="hostName">
-						<option value="" selected>---</option>
-						<c:forEach var="host" items="${sessionScope.hostNameList }">
-							<option value="${pageScope.host }">
-								<c:out value="${pageScope.host }" />
-							</option>
-						</c:forEach>
-				</select></td>
+				<td>発生ノード/系列</td>
+				<td><input type="text" name="nodeName"></td>
 			</tr>
 			<tr>
-				<th>ステータス</th>
-				<td><input type="radio" name="status" value="1" checked>OPEN<input
-					type="radio" name="status" value="2">CLOSE</td>
+				<td>プロダクト名/モジュール名</td>
+				<td><input type="text" name="productName"></td>
 			</tr>
 			<tr>
-				<th>エラーメッセージ</th>
-				<td><input type="text" name="errorMessage"></td>
+				<td>詳細内容</td>
+				<td><input type="text" name="detail"></td>
 			</tr>
-			<tr>
-				<th>原因</th>
-				<td><input type="text" name="cause"></td>
-			</tr>
-
 		</table>
-		<br> <input type="submit" value="検索"><br> <a
-			href="ShowErrorSamary">全件検索</a>
+
+		<input type="submit" value="検索"> <br> <br>
+
+
+		<h3>メッセージ一覧</h3>
+		<table border="1">
+			<tr>
+				<th>選択</th>
+				<th>発生日/報告受領日</th>
+				<th>詳細内容</th>
+				<th>発生時刻</th>
+				<th>発生ノード/系列</th>
+				<th>プロダクト名/モジュール名</th>
+				<th>内容</th>
+				<th>原因/トレース状況</th>
+				<th>対応内容</th>
+				<th>対応内容（予定含む）</th>
+			</tr>
+			<c:forEach var="message" items="${sessionScope.messageEntityList }">
+				<tr>
+					<td><input type="radio" name="selected"
+						value="${message.incidentNumber }"></td>
+					<td><c:out value="${message.incidentDate }" /></td>
+					<td><c:out value="${message.detail }" /></td>
+					<td><c:out value="${message.incidentTime }" /></td>
+					<td><c:out value="${message.nodeName }" /></td>
+					<td><c:out value="${message.productName }" /></td>
+					<td><c:out value="${message.content }" /></td>
+					<td><c:out value="${message.cause }" /></td>
+					<td><c:out value="${message.coverContent }" /></td>
+					<td><c:out value="${message.coverPlan }" /></td>
+
+				</tr>
+			</c:forEach>
+		</table>
+		<br> <input type="submit" value="メッセージ詳細へ">
+
 	</form>
 
-	<h3>PC版</h3>
+
+
+	<h3>詳細メッセージ一覧</h3>
 	<table border="1">
 		<tr>
-			<th>インシデントID</th>
-			<th>発生時刻</th>
+			<th>選択</th>
+			<th>インシデント番号</th>
 			<th>ステータス</th>
-			<th>ホスト名</th>
-			<th>エラーメッセージID</th>
-			<th>エラーメッセージ</th>
-			<th>進捗状況</th>
-			<th>原因</th>
+			<th>担当</th>
+			<th>発生日/報告受領日</th>
+			<th>曜日</th>
+			<th>詳細内容</th>
+			<th>TEC通知</th>
+			<th>発生時刻</th>
+			<th>発生ノード/系列</th>
+			<th>プロダクト名/モジュール名</th>
+			<th>内容</th>
+			<th>稼働確認結果</th>
+			<th>取引確認結果</th>
+			<th>ユーザ影響有無</th>
+			<th>HWエラー有無</th>
+			<th>原因/トレース状況</th>
+			<th>復旧確認時刻</th>
+			<th>対応内容</th>
+			<th>運用向け報告①問題有無②対応状況③手順書修正</th>
+			<th>対応内容（予定含む）</th>
+			<th>対応予定日/リリース予定日</th>
 		</tr>
 		<c:forEach var="message" items="${sessionScope.messageEntityList }">
 			<tr>
-				<th><c:out value="${message.incidentId }" /></th>
-				<th><fmt:formatDate value="${message.incidentTime }"
-						pattern="yyyy/MM/dd HH:mm:ss" /></th>
-				<th><c:choose>
-						<c:when test="${message.status == 1}">OPEN</c:when>
-						<c:when test="${message.status == 2}">CLOSE</c:when>
-					</c:choose></th>
-				<th><c:out value="${message.hostName }" /></th>
-				<th><c:out value="${message.errorMessageId }" /></th>
-				<th><c:out value="${message.errorMessage }" /></th>
-				<th><c:out value="${message.progress }" /></th>
-				<th><c:out value="${message.cause }" /></th>
+				<td><input type="radio" name="selected"
+					value="${message.incidentNumber }"></td>
+				<td><c:out value="${message.incidentNumber }" /></td>
+				<td><c:out value="${message.status }" /></td>
+				<td><c:out value="${message.cherger }" /></td>
+				<td><c:out value="${message.incidentDate }" /></td>
+				<td><c:out value="${message.day }" /></td>
+				<td><c:out value="${message.detail }" /></td>
+				<td><c:out value="${message.tecAlert }" /></td>
+				<td><c:out value="${message.incidentTime }" /></td>
+				<td><c:out value="${message.nodeName }" /></td>
+				<td><c:out value="${message.productName }" /></td>
+				<td><c:out value="${message.content }" /></td>
+				<td><c:out value="${message.confirmResult }" /></td>
+				<td><c:out value="${message.transactionConfirm }" /></td>
+				<td><c:out value="${message.userHermress }" /></td>
+				<td><c:out value="${message.hwError }" /></td>
+				<td><c:out value="${message.cause }" /></td>
+				<td><c:out value="${message.recoverTime }" /></td>
+				<td><c:out value="${message.coverContent }" /></td>
+				<td><c:out value="${message.reportForRun }" /></td>
+				<td><c:out value="${message.coverPlan }" /></td>
+				<td><c:out value="${message.coverPlanDate }" /></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br>
-
-	<h3>ブラウザ版</h3>
-	<table border="1">
-		<tr>
-			<th>発生時刻</th>
-			<th>ホスト名</th>
-			<th>エラーメッセージ</th>
-			<th>原因</th>
-		</tr>
-		<c:forEach var="message" items="${sessionScope.messageEntityList }">
-			<tr>
-				<th><fmt:formatDate value="${message.incidentTime }"
-						pattern="yyyy/MM/dd HH:mm:ss" /></th>
-				<th><c:out value="${message.hostName }" /></th>
-				<th><c:out value="${message.errorMessage }" /></th>
-				<th><c:out value="${message.cause }" /></th>
-			</tr>
-		</c:forEach>
-	</table>
-
+	<br>
 	<a href="ShowMenuServlet">メニューへ戻る</a>
-
 </body>
 </html>
