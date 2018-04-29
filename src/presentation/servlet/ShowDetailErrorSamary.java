@@ -30,7 +30,6 @@ public class ShowDetailErrorSamary extends HttpServlet {
 
 		// 詳細表示するエラーサマリのインシデント番号を取得
 		String incidentNumber = request.getParameter("selectIncidentNumber");
-		System.out.println(incidentNumber);
 
 		// ロジック取得
 		MessageLogic messageLogic = new MessageLogic();
