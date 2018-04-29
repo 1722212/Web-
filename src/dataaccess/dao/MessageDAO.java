@@ -81,12 +81,12 @@ public class MessageDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public MessageEntity selectByIncidentNo(Connection con, String incidectNo) throws SQLException {
+	public List<MessageEntity> selectByIncidentNo(Connection con, String incidectNo) throws SQLException {
 
 		// SQL
 		String sql = "SELECT * FROM MESSAGE WHERE INCIDENT_NUMBER = ?";
-		// メッセージエンティティ生成
-		MessageEntity messageEntity = new MessageEntity();
+		// メッセージエンティティを格納するリスト
+		List<MessageEntity> messageList = new ArrayList<MessageEntity>();
 
 		try (PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -96,6 +96,9 @@ public class MessageDAO {
 			try (ResultSet rs = ps.executeQuery()) {
 
 				while (rs.next()) {
+
+					// メッセージエンティティ生成
+					MessageEntity messageEntity = new MessageEntity();
 
 					messageEntity.setIncidentNumber(rs.getString("INCIDENT_NUMBER"));
 					messageEntity.setStatus(rs.getString("STATUS"));
@@ -118,10 +121,13 @@ public class MessageDAO {
 					messageEntity.setReportForRun(rs.getString("REPORT_FOR_RUN"));
 					messageEntity.setCoverPlan(rs.getString("COVER_PLAN"));
 					messageEntity.setCoverPlanDate(rs.getString("COVER_PLAN_DATE"));
+
+					// リストに追加
+					messageList.add(messageEntity);
 				}
 			}
 		}
-		return messageEntity;
+		return messageList;
 	}
 
 	/**

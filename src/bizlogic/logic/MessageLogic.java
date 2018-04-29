@@ -41,17 +41,41 @@ public class MessageLogic {
 		return messageEntityList;
 	}
 
+	/**
+	 * インシデント番号でエラーサマリを取得するメソッド
+	 *
+	 * @throws SQLException
+	 */
+	public List<MessageEntity> searchMessageByIncidentNumber(String incidentNumber) throws SQLException {
+
+		// メッセージのリストを生成
+		List<MessageEntity> messageEntityList = new ArrayList<>();
+
+		// DB接続
+		try (Connection con = ConnectionUtil.getConnection();) {
+
+			// DAO生成
+			MessageDAO messageDAO = new MessageDAO();
+
+			// 取得
+			messageEntityList = messageDAO.selectByIncidentNo(con, incidentNumber);
+		}
+
+		return messageEntityList;
+
+	}
 
 	/**
 	 * 発生ノード/系列名であいまい検索するメソッド
+	 *
 	 * @throws SQLException
 	 */
-	public List<MessageEntity> searchByNodeName(String nodeName) throws SQLException{
+	public List<MessageEntity> searchByNodeName(String nodeName) throws SQLException {
 
 		// メッセージのリストを生成
 		List<MessageEntity> messageEntiyList = new ArrayList<>();
 		// DB接続
-		try(Connection con = ConnectionUtil.getConnection()){
+		try (Connection con = ConnectionUtil.getConnection()) {
 
 			// DAO生成
 			MessageDAO messageDAO = new MessageDAO();
@@ -63,14 +87,10 @@ public class MessageLogic {
 		return messageEntiyList;
 	}
 
-
 	/**
 	 * AND検索するメソッド
 	 *
-	 * 指定できるキーは
-	 * ①発生ノード/系列
-	 * ②プロダクト名/モジュール名
-	 * ③詳細内容
+	 * 指定できるキーは ①発生ノード/系列 ②プロダクト名/モジュール名 ③詳細内容
 	 *
 	 * @param searchKeyBean
 	 * @return
