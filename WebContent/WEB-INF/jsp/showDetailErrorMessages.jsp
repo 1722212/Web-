@@ -27,51 +27,91 @@
 	<div class="container">
 		<div class="table-responsive">
 			<table border="1" class="table table-striped">
-				<tr>
-					<th>インシデント番号</th>
-					<th>ステータス</th>
-					<th>担当</th>
-					<th>発生日/報告受領日</th>
-					<th>曜日</th>
-					<th>詳細内容</th>
-					<th>TEC通知</th>
-					<th>発生時刻</th>
-					<th>発生ノード/系列</th>
-					<th>プロダクト名/モジュール名</th>
-					<th>初動対応</th>
-					<th>稼働確認結果</th>
-					<th>取引確認結果</th>
-					<th>ユーザ影響有無</th>
-					<th>HWエラー有無</th>
-					<th>原因/トレース状況</th>
-					<th>復旧確認時刻</th>
-					<th>暫定対応</th>
-					<th>運用向け報告①問題有無②対応状況③手順書修正</th>
-					<th>本格対応</th>
-					<th>対応予定日/リリース予定日</th>
-				</tr>
 				<c:forEach var="message" items="${requestScope.messageEntityList }">
+
 					<tr>
+						<th>インシデント番号</th>
 						<td><c:out value="${message.incidentNumber }" /></td>
+					</tr>
+					<tr>
+						<th>ステータス</th>
 						<td><c:out value="${message.status }" /></td>
+					</tr>
+					<tr>
+						<th>担当</th>
 						<td><c:out value="${message.cherger }" /></td>
+					</tr>
+					<tr>
+						<th>発生日/報告受領日</th>
 						<td><c:out value="${message.incidentDate }" /></td>
+					</tr>
+					<tr>
+						<th>曜日</th>
 						<td><c:out value="${message.day }" /></td>
+					</tr>
+					<tr>
+						<th>詳細内容</th>
 						<td><c:out value="${message.detail }" /></td>
+					</tr>
+					<tr>
+						<th>TEC通知</th>
 						<td><c:out value="${message.tecAlert }" /></td>
+					</tr>
+					<tr>
+						<th>発生時刻</th>
 						<td><c:out value="${message.incidentTime }" /></td>
+					</tr>
+					<tr>
+						<th>発生ノード/系列</th>
 						<td><c:out value="${message.nodeName }" /></td>
+					</tr>
+					<tr>
+						<th>プロダクト名/モジュール名</th>
 						<td><c:out value="${message.productName }" /></td>
+					</tr>
+					<tr>
+						<th>初動対応</th>
 						<td><c:out value="${message.content }" /></td>
+					</tr>
+					<tr>
+
+						<th>稼働確認結果</th>
 						<td><c:out value="${message.confirmResult }" /></td>
+					</tr>
+					<tr>
+						<th>取引確認結果</th>
 						<td><c:out value="${message.transactionConfirm }" /></td>
+					</tr>
+					<tr>
+						<th>ユーザ影響有無</th>
 						<td><c:out value="${message.userHermress }" /></td>
+					</tr>
+					<tr>
+						<th>HWエラー有無</th>
 						<td><c:out value="${message.hwError }" /></td>
+					</tr>
+					<tr>
+						<th>原因/トレース状況</th>
 						<td><c:out value="${message.cause }" /></td>
+					</tr>
+					<tr>
+						<th>復旧確認時刻</th>
 						<td><c:out value="${message.recoverTime }" /></td>
+					</tr>
+					<tr>
+						<th>暫定対応</th>
 						<td><c:out value="${message.coverContent }" /></td>
+					</tr>
+					<tr>
+						<th>運用向け報告①問題有無②対応状況③手順書修正</th>
 						<td><c:out value="${message.reportForRun }" /></td>
+					</tr>
+					<tr>
+						<th>本格対応</th>
 						<td><c:out value="${message.coverPlan }" /></td>
+					</tr>
+					<tr>
+						<th>対応予定日/リリース予定日</th>
 						<td><c:out value="${message.coverPlanDate }" /></td>
 					</tr>
 				</c:forEach>
