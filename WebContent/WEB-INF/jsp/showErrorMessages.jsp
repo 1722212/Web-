@@ -20,19 +20,22 @@
 		<table>
 			<tr>
 				<td>発生ノード/系列</td>
-				<td><input type="text" name="nodeName"></td>
+				<td><input type="text" name="nodeName"
+					value="<c:out value="${requestScope.searchKeyBean.nodeName }" />"></td>
 			</tr>
 			<tr>
 				<td>プロダクト名/モジュール名</td>
-				<td><input type="text" name="productName"></td>
+				<td><input type="text" name="productName"
+					value="<c:out value="${requestScope.searchKeyBean.productName }" />"></td>
 			</tr>
 			<tr>
 				<td>詳細内容</td>
-				<td><input type="text" name="detail"></td>
+				<td><input type="text" name="detail"
+					value="<c:out value="${requestScope.searchKeyBean.detail }" />"></td>
 			</tr>
 		</table>
-
-		<input type="submit" value="検索"> <br> <br>
+		<br> <input type="submit" value="検索"> <a
+			href="ShowErrorSamary">全件表示する</a>
 	</form>
 
 	<form action="ShowDetailErrorSamary" method="post">

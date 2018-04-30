@@ -34,13 +34,13 @@ public class ShowErrorSamaryServlet extends HttpServlet {
 
 		// ロジック取得
 		MessageLogic messageLogic = new MessageLogic();
-		// エラーメッセージリスト生成
+		// メッセージリスト生成
 		List<MessageEntity> messageEntityList = new ArrayList<>();
 		// 発生ノード/系列名のリスト
 		List<String> nodeNameList = new ArrayList<>();
 
 		try {
-			// エラーメッセージを全件取得
+			// メッセージを全件取得
 			messageEntityList = messageLogic.searchAllMessages();
 
 			// 発生ノード/系列名を全件取得
@@ -60,7 +60,7 @@ public class ShowErrorSamaryServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		// 発生ノード/系列名をセッションに登録
 		session.setAttribute("nodeNameList", nodeNameList);
-		// エラーメッセージのリストをセッションに登録
+		// メッセージのリストをセッションに登録
 		session.setAttribute("messageEntityList", messageEntityList);
 
 		// エラーサマリ表示画面へフォワード
@@ -93,9 +93,12 @@ public class ShowErrorSamaryServlet extends HttpServlet {
 		searchKeyBean.setProductName(productName);
 		searchKeyBean.setDetail(detail);
 
+		// 検索条件をリクエストに登録
+		request.setAttribute("searchKeyBean", searchKeyBean);
+
 		// ロジック取得
 		MessageLogic messageLogic = new MessageLogic();
-		// エラーメッセージのリストを生成
+		// メッセージのリストを生成
 		List<MessageEntity> messageEntityList = new ArrayList<>();
 		try {
 			// AND検索
@@ -110,7 +113,7 @@ public class ShowErrorSamaryServlet extends HttpServlet {
 
 			return;
 		}
-		// エラーメッセージのリストをセッションに登録
+		// メッセージのリストをセッションに登録
 		HttpSession session = request.getSession();
 		session.setAttribute("messageEntityList", messageEntityList);
 

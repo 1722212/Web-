@@ -80,6 +80,8 @@
 	</div>
 	<br>
 	<br>
+	<a href="ShowErrorSamary">一覧画面へ</a>
+	<br>
 	<a href="ShowMenuServlet">メニューへ戻る</a>
 
 </body>
