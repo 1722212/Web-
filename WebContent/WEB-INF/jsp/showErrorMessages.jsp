@@ -10,6 +10,9 @@
 <title>エラーサマリ</title>
 </head>
 <body>
+	<%-- エラーメッセージ --%>
+	<c:out value="${requestScope.errorMessage }" />
+
 	<h2>エラーサマリ</h2>
 	<form action="ShowErrorSamary" method="post">
 
@@ -49,7 +52,7 @@
 			<c:forEach var="message" items="${sessionScope.messageEntityList }">
 				<tr>
 					<td><input type="radio" name="selectIncidentNumber"
-						value="${message.incidentNumber }"></td>
+						value="${message.incidentNumber }" required></td>
 					<td><c:out value="${message.incidentDate }" /></td>
 					<td><c:out value="${message.detail }" /></td>
 					<td><c:out value="${message.incidentTime }" /></td>

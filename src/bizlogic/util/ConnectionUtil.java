@@ -8,10 +8,18 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+/**
+ * DBに接続するためのユーティルクラス
+ *
+ * @author Takayama
+ *
+ */
 public class ConnectionUtil {
 
+	// コネクションを取得するメソッド
 	public static Connection getConnection() throws SQLException {
 
+		// コネクション
 		Connection con = null;
 
 		try {
