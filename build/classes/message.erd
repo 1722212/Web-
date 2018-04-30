@@ -161,8 +161,13 @@
         </net.java.amateras.db.visual.model.ColumnModel>
         <net.java.amateras.db.visual.model.ColumnModel>
           <columnName>CONTENT</columnName>
-          <logicalName>内容</logicalName>
-          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <logicalName>初動対応</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>VARCHAR2</name>
+            <logicalName>文字列</logicalName>
+            <supportSize>true</supportSize>
+            <type>12</type>
+          </columnType>
           <size>2000</size>
           <notNull>true</notNull>
           <primaryKey>false</primaryKey>
@@ -238,8 +243,8 @@
         </net.java.amateras.db.visual.model.ColumnModel>
         <net.java.amateras.db.visual.model.ColumnModel>
           <columnName>COVER_CONTENT</columnName>
-          <logicalName>対応内容</logicalName>
-          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <logicalName>暫定対応</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[11]/columnType"/>
           <size>2000</size>
           <notNull>true</notNull>
           <primaryKey>false</primaryKey>
@@ -260,8 +265,8 @@
         </net.java.amateras.db.visual.model.ColumnModel>
         <net.java.amateras.db.visual.model.ColumnModel>
           <columnName>COVER_PLAN</columnName>
-          <logicalName>対応内容（予定含む）</logicalName>
-          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <logicalName>本格対応</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[11]/columnType"/>
           <size>2000</size>
           <notNull>true</notNull>
           <primaryKey>false</primaryKey>

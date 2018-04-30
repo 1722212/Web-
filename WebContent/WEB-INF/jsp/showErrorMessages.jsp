@@ -49,7 +49,7 @@
 				<th>発生時刻</th>
 				<th>発生ノード/系列</th>
 				<th>プロダクト名/モジュール名</th>
-				<th>内容</th>
+				<th>初動対応</th>
 
 			</tr>
 			<c:forEach var="message" items="${sessionScope.messageEntityList }">

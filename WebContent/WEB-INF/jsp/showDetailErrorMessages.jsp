@@ -38,16 +38,16 @@
 					<th>発生時刻</th>
 					<th>発生ノード/系列</th>
 					<th>プロダクト名/モジュール名</th>
-					<th>内容</th>
+					<th>初動対応</th>
 					<th>稼働確認結果</th>
 					<th>取引確認結果</th>
 					<th>ユーザ影響有無</th>
 					<th>HWエラー有無</th>
 					<th>原因/トレース状況</th>
 					<th>復旧確認時刻</th>
-					<th>対応内容</th>
+					<th>暫定対応</th>
 					<th>運用向け報告①問題有無②対応状況③手順書修正</th>
-					<th>対応内容（予定含む）</th>
+					<th>本格対応</th>
 					<th>対応予定日/リリース予定日</th>
 				</tr>
 				<c:forEach var="message" items="${requestScope.messageEntityList }">
