@@ -7,14 +7,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>メニュー画面</title>
+<title>登録完了画面</title>
 </head>
 <body>
-	<h3>メニュー画面です</h3>
+	<%-- エラーメッセージ --%>
+	<span style="color: #ff0000;"><c:out
+			value="${requestScope.errorMessage }" /></span>
+	<h3>エラーサマリ登録完了画面</h3>
 
-	<a href="ShowErrorSamary">エラーサマリ</a>
+	登録が完了しました
 
-	<a href="ShowInputErrorSamaryServlet">エラーサマリ登録画面</a>
+	<a href="ShowErrorSamary">エラーサマリ一覧画面へ</a>
+	<br>
+	<a href="ShowMenuServlet">メニュー画面へ</a>
 
 </body>
 </html>

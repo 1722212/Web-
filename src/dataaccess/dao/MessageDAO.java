@@ -402,32 +402,32 @@ public class MessageDAO {
 				+ "DAY, " + "DETAIL, " + "TEC_ALERT, " + "INCIDENT_TIME, " + "NODE_NAME, " + "PRODUCT_NAME, "
 				+ "CONTENT, " + "CONFIRM_RESULT, " + "TRANSACTION_CONFIRM, " + "USER_HARMRESS, " + "HW_ERROR, "
 				+ "CAUSE, " + "RECOVER_TIME, " + "COVER_CONTENT, " + "REPORT_FOR_RUN, " + "COVER_PLAN, "
-				+ "COVER_PLAN_DATE" + ") VALUES (I" + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?" + ");";
+				+ "COVER_PLAN_DATE" + ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try (PreparedStatement ps = con.prepareStatement(sql);) {
 
 			// クエリをセット
-			ps.setString(1, "INCIDENT_NUMBER");
-			ps.setString(2, "STATUS");
-			ps.setString(3, "CHERGER");
-			ps.setString(4, "INCIDENT_DATE");
-			ps.setString(5, "DAY");
-			ps.setString(6, "DETAIL");
-			ps.setString(7, "TEC_ALERT");
-			ps.setString(8, "INCIDENT_TIME");
-			ps.setString(9, "NODE_NAME");
-			ps.setString(10, "PRODUCT_NAME");
-			ps.setString(11, "CONTENT");
-			ps.setString(12, "CONFIRM_RESULT");
-			ps.setString(13, "TRANSACTION_CONFIRM");
-			ps.setString(14, "USER_HARMRESS");
-			ps.setString(15, "HW_ERROR");
-			ps.setString(16, "CAUSE");
-			ps.setString(17, "RECOVER_TIME");
-			ps.setString(18, "COVER_CONTENT");
-			ps.setString(19, "REPORT_FOR_RUN");
-			ps.setString(20, "COVER_PLAN");
-			ps.setString(21, "COVER_PLAN_DATE");
+			ps.setString(1, messageEntity.getIncidentNumber());
+			ps.setString(2, messageEntity.getStatus());
+			ps.setString(3, messageEntity.getCherger());
+			ps.setString(4, messageEntity.getIncidentDate());
+			ps.setString(5, messageEntity.getDay());
+			ps.setString(6, messageEntity.getDetail());
+			ps.setString(7, messageEntity.getTecAlert());
+			ps.setString(8, messageEntity.getIncidentTime());
+			ps.setString(9, messageEntity.getNodeName());
+			ps.setString(10, messageEntity.getProductName());
+			ps.setString(11, messageEntity.getContent());
+			ps.setString(12, messageEntity.getConfirmResult());
+			ps.setString(13, messageEntity.getTransactionConfirm());
+			ps.setString(14, messageEntity.getUserHermress());
+			ps.setString(15, messageEntity.getHwError());
+			ps.setString(16, messageEntity.getCause());
+			ps.setString(17, messageEntity.getRecoverTime());
+			ps.setString(18, messageEntity.getCoverContent());
+			ps.setString(19, messageEntity.getReportForRun());
+			ps.setString(20, messageEntity.getCoverPlan());
+			ps.setString(21, messageEntity.getCoverPlanDate());
 
 			// 実行
 			cnt = ps.executeUpdate();

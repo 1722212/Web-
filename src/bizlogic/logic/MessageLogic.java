@@ -134,4 +134,20 @@ public class MessageLogic {
 		return nodeNameList;
 	}
 
+	/**
+	 * エラーサマリを登録するメソッド
+	 *
+	 * @throws SQLException
+	 */
+	public void registMessage(MessageEntity messageEntity) throws SQLException {
+
+		// DB接続
+		try (Connection con = ConnectionUtil.getConnection();) {
+
+			// DAO生成
+			MessageDAO messageDAO = new MessageDAO();
+			messageDAO.insert(con, messageEntity);
+		}
+	}
+
 }

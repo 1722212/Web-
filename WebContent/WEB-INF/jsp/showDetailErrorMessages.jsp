@@ -21,7 +21,8 @@
 </head>
 <body>
 	<%-- エラーメッセージ --%>
-	<c:out value="${requestScope.errorMessage }" />
+	<span style="color: #ff0000;"><c:out
+			value="${requestScope.errorMessage }" /></span>
 
 	<h3>詳細メッセージ一覧</h3>
 	<div class="container">
@@ -103,7 +104,8 @@
 						<td><c:out value="${message.coverContent }" /></td>
 					</tr>
 					<tr>
-						<th>運用向け報告<br>①問題有無②対応状況③手順書修正</th>
+						<th>運用向け報告<br>①問題有無②対応状況③手順書修正
+						</th>
 						<td><c:out value="${message.reportForRun }" /></td>
 					</tr>
 					<tr>

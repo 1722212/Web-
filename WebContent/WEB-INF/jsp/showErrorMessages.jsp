@@ -11,7 +11,8 @@
 </head>
 <body>
 	<%-- エラーメッセージ --%>
-	<c:out value="${requestScope.errorMessage }" />
+	<span style="color: #ff0000;"><c:out
+			value="${requestScope.errorMessage }" /></span>
 
 	<h2>エラーサマリ</h2>
 	<form action="ShowErrorSamary" method="post">
