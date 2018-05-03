@@ -33,4 +33,24 @@ public class Constance {
 	 */
 	public static final String COMPLETE_ERROR_SAMARY_JSP = "/WEB-INF/jsp/completeErrorSamary.jsp";
 
+	/**
+	 * エラーサマリ編集画面のURL
+	 */
+	public static final String SHOW_MODIFY_MESSAGE_JSP = "/WEB-INF/jsp/showModifyMessage.jsp";
+
+	/**
+	 * エラーサマリ編集完了画面のURL
+	 */
+	public static final String COMPLETE_MODIFY_ERROR_SAMARY_JSP = "/WEB-INF/jsp/completeModifyErrorSamary.jsp";
+
+	/**
+	 * エラーサマリ削除画面のURL
+	 */
+	public static final String SHOW_DELETE_ERROR_SAMARY_JSP = "/WEB-INF/jsp/showDeleteErrorSamary.jsp";
+
+	/**
+	 * エラーサマリ削除完了画面のURL
+	 */
+	public static final String COMPLETE_DELETE_ERROR_SAMARY_JSP = "/WEB-INF/jsp/completeDeleteErrorSamary.jsp";
+
 }

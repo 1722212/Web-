@@ -16,10 +16,10 @@ import dataaccess.entity.MessageEntity;
 import presentation.util.Constance;
 
 /**
- * エラーサマリの詳細を表示するサーブレット
+ * エラーメッセージ編集画面を表示するサーブレット
  */
-@WebServlet("/ShowDetailErrorSamary")
-public class ShowDetailErrorSamaryServlet extends HttpServlet {
+@WebServlet("/ShowModifyErrorSamaryServlet")
+public class ShowModifyErrorSamaryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -29,7 +29,7 @@ public class ShowDetailErrorSamaryServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 詳細表示するエラーサマリのインシデント番号を取得
+		// 編集するエラーサマリのインシデント番号を取得
 		String incidentNumber = (String) request.getAttribute("selectIncidentNumber");
 
 		// ロジック取得
@@ -55,7 +55,7 @@ public class ShowDetailErrorSamaryServlet extends HttpServlet {
 		request.setAttribute("messageEntityList", messageEntityList);
 
 		// フォワード
-		request.getRequestDispatcher(Constance.SHOW_DETAIL_ERROR_MESSAGES_JSP).forward(request, response);
+		request.getRequestDispatcher(Constance.SHOW_MODIFY_MESSAGE_JSP).forward(request, response);
 
 	}
 

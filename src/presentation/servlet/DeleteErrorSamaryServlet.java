@@ -8,17 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import bizlogic.logic.MessageLogic;
-import dataaccess.entity.MessageEntity;
 import presentation.util.Constance;
 
 /**
- * エラーサマリを登録するサーブレット
+ * エラーメッセージを削除するサーブレット
  */
-@WebServlet("/RegistErrorSamaryServlet")
-public class RegistErrorSamaryServlet extends HttpServlet {
+@WebServlet("/DeleteErrorSamaryServlet")
+public class DeleteErrorSamaryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -28,31 +26,25 @@ public class RegistErrorSamaryServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// セッション取得
-		HttpSession session = request.getSession();
-		// 入力内容をセッションから取得
-		MessageEntity messageEntity = new MessageEntity();
-		messageEntity = (MessageEntity) session.getAttribute("messageEntity");
+		// 削除するメッセージのインシデント番号を取得
+		String incidentNumber = request.getParameter("incidentNumber");
 
 		// ロジック取得
 		MessageLogic messageLogic = new MessageLogic();
 		try {
-			messageLogic.registMessage(messageEntity);
+			messageLogic.deleteMessage(incidentNumber);
 		} catch (SQLException e) {
 			// エラーメッセージをリクエストに登録
 			String errorMessage = e.getMessage();
 			request.setAttribute("errorMessage", errorMessage);
 			// エラーサマリ表示画面へフォワード
-			request.getRequestDispatcher(Constance.SHOW_INPUT_ERROR_SAMARY_JSP).forward(request, response);
+			request.getRequestDispatcher(Constance.SHOW_DELETE_ERROR_SAMARY_JSP).forward(request, response);
 			e.printStackTrace();
 			return;
 		}
 
-		// 入力内容をセッションから削除
-		session.removeAttribute("messageEntity");
-
-		// 登録完了画面へフォワード
-		request.getRequestDispatcher(Constance.COMPLETE_ERROR_SAMARY_JSP).forward(request, response);
+		// エラーメッセージ完了画面へフォワード
+		request.getRequestDispatcher(Constance.COMPLETE_DELETE_ERROR_SAMARY_JSP).forward(request, response);
 
 	}
 

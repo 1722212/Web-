@@ -32,6 +32,11 @@ public class ShowErrorSamaryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// セッション取得
+		HttpSession session = request.getSession();
+		// 入力内容をセッションから削除
+		session.removeAttribute("messageEntity");
+
 		// ロジック取得
 		MessageLogic messageLogic = new MessageLogic();
 		// メッセージリスト生成
@@ -56,8 +61,6 @@ public class ShowErrorSamaryServlet extends HttpServlet {
 			return;
 		}
 
-		// セッション取得
-		HttpSession session = request.getSession();
 		// 発生ノード/系列名をセッションに登録
 		session.setAttribute("nodeNameList", nodeNameList);
 		// メッセージのリストをセッションに登録

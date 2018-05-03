@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * メニュー画面を表示するサーブレット
@@ -21,6 +22,12 @@ public class ShowMenuServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		// セッション取得
+		HttpSession session = request.getSession();
+
+		// 入力内容をセッションから削除
+		session.removeAttribute("messageEntity");
 
 		// メニュー画面へフォワード
 		request.getRequestDispatcher("/WEB-INF/jsp/showMenu.jsp").forward(request, response);

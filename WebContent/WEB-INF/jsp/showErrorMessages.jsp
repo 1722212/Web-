@@ -39,7 +39,7 @@
 			href="ShowErrorSamary">全件表示する</a>
 	</form>
 
-	<form action="ShowDetailErrorSamary" method="post">
+	<form action="SelectProcessServlet" method="post">
 
 		<h3>メッセージ一覧</h3>
 		<table border="1">
@@ -56,7 +56,7 @@
 			<c:forEach var="message" items="${sessionScope.messageEntityList }">
 				<tr>
 					<td><input type="radio" name="selectIncidentNumber"
-						value="${message.incidentNumber }" required></td>
+						value="${message.incidentNumber }"></td>
 					<td><c:out value="${message.incidentDate }" /></td>
 					<td><c:out value="${message.detail }" /></td>
 					<td><c:out value="${message.incidentTime }" /></td>
@@ -66,7 +66,10 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<br> <input type="submit" value="メッセージ詳細へ">
+		<br> <input type="submit" value="詳細" name="detail"><br>
+		<input type="submit" value="編集" name="modify"> <input
+			type="submit" value="削除" name="delete"> <input type="submit"
+			value="新規登録" name="regist">
 
 	</form>
 	<br>

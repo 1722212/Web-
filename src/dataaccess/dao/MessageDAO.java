@@ -482,6 +482,7 @@ public class MessageDAO {
 			ps.setString(19, messageEntity.getReportForRun());
 			ps.setString(20, messageEntity.getCoverPlan());
 			ps.setString(21, messageEntity.getCoverPlanDate());
+			ps.setString(22, messageEntity.getIncidentNumber());
 
 			// 実行
 			cnt = ps.executeUpdate();
@@ -499,7 +500,7 @@ public class MessageDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public int delete(Connection con, String incidectNo) throws SQLException {
+	public int delete(Connection con, String incidentNumber) throws SQLException {
 
 		// 削除件数
 		int cnt = 0;
@@ -509,7 +510,7 @@ public class MessageDAO {
 		try (PreparedStatement ps = con.prepareStatement(sql)) {
 
 			// クエリをセット
-			ps.setString(1, incidectNo);
+			ps.setString(1, incidentNumber);
 			// 実行
 			cnt = ps.executeUpdate();
 			System.out.println(cnt + "件削除しました");

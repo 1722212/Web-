@@ -150,4 +150,38 @@ public class MessageLogic {
 		}
 	}
 
+	/**
+	 * エラーサマリを編集するメソッド
+	 *
+	 * @throws SQLException
+	 */
+	public void modifyMessage(MessageEntity messageEntity, String incidentNumber) throws SQLException {
+
+		// DB接続
+		try (Connection con = ConnectionUtil.getConnection();) {
+
+			// DAO生成
+			MessageDAO messageDAO = new MessageDAO();
+			messageDAO.update(con, messageEntity, incidentNumber);
+
+		}
+	}
+
+	/**
+	 * エラーサマリを削除するメソッド
+	 *
+	 * @throws SQLException
+	 */
+	public void deleteMessage(String incidentNumber) throws SQLException {
+
+		// DB接続
+		try (Connection con = ConnectionUtil.getConnection();) {
+
+			// DAO生成
+			MessageDAO messageDAO = new MessageDAO();
+			messageDAO.delete(con, incidentNumber);
+
+		}
+	}
+
 }

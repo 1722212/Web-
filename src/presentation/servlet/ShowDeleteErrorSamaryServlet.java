@@ -16,10 +16,10 @@ import dataaccess.entity.MessageEntity;
 import presentation.util.Constance;
 
 /**
- * エラーサマリの詳細を表示するサーブレット
+ * 削除するエラーメッセージの詳細を表示するサーブレット
  */
-@WebServlet("/ShowDetailErrorSamary")
-public class ShowDetailErrorSamaryServlet extends HttpServlet {
+@WebServlet("/ShowDeleteErrorSamaryServlet")
+public class ShowDeleteErrorSamaryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -29,8 +29,11 @@ public class ShowDetailErrorSamaryServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 詳細表示するエラーサマリのインシデント番号を取得
+		// 削除するエラーサマリのインシデント番号を取得
 		String incidentNumber = (String) request.getAttribute("selectIncidentNumber");
+
+		// インシデント番号をリクエストに登録
+		request.setAttribute("incidentNumber", incidentNumber);
 
 		// ロジック取得
 		MessageLogic messageLogic = new MessageLogic();
@@ -55,7 +58,7 @@ public class ShowDetailErrorSamaryServlet extends HttpServlet {
 		request.setAttribute("messageEntityList", messageEntityList);
 
 		// フォワード
-		request.getRequestDispatcher(Constance.SHOW_DETAIL_ERROR_MESSAGES_JSP).forward(request, response);
+		request.getRequestDispatcher(Constance.SHOW_DELETE_ERROR_SAMARY_JSP).forward(request, response);
 
 	}
 

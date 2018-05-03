@@ -12,11 +12,11 @@
 <%-- レスポンシブデザインに対応 --%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- BootstrapのCSS読み込み -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery読み込み -->
-<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
 <!-- BootstrapのJS読み込み -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <title>詳細エラーサマリ</title>
 </head>
 <body>
