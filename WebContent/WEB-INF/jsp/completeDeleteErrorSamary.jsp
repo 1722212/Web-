@@ -21,11 +21,10 @@
 </head>
 <body>
 	<div class="container">
+		<h3>メッセージ削除完了</h3>
 		<%-- エラーメッセージ --%>
 		<span style="color: #ff0000;"><c:out
 				value="${requestScope.errorMessage }" /></span>
-
-		<h3>メッセージ削除完了</h3>
 		<div class="container">削除が完了しました</div>
 		<br> <br> <a href="ShowErrorSamary">一覧画面へ</a> <br> <a
 			href="ShowMenuServlet">メニューへ戻る</a>

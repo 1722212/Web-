@@ -9,6 +9,7 @@ import bizlogic.bean.SearchKeyBean;
 import bizlogic.util.ConnectionUtil;
 import dataaccess.dao.MessageDAO;
 import dataaccess.entity.MessageEntity;
+import presentation.form.MessageForm;
 
 /**
  * エラーサマリのロジッククラス
@@ -182,6 +183,20 @@ public class MessageLogic {
 			messageDAO.delete(con, incidentNumber);
 
 		}
+	}
+
+	/**
+	 * 入力内容を検証するメソッド
+	 */
+	public boolean checkInputMessage(MessageForm messageForm) {
+
+		// 検証結果を初期化
+		boolean result = false;
+
+		// 入力値の長さをチェック
+
+		return result;
+
 	}
 
 }

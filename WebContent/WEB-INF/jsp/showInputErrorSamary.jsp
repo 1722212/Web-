@@ -21,12 +21,11 @@
 </head>
 <body>
 	<div class="container">
+		<h3>エラーサマリ登録画面</h3>
+
 		<%-- エラーメッセージ --%>
 		<span style="color: #ff0000;"><c:out
 				value="${requestScope.errorMessage }" /></span>
-
-
-		<h3>エラーサマリ登録画面</h3>
 		<form action="ConfirmErrorSamaryServlet" method="post">
 			<div class="table-responsive">
 				<table border="1"
@@ -35,17 +34,19 @@
 						<th class="info col-xs-3">インシデント番号</th>
 						<td class="col-xs-9"><input type="text" name="incidentNumber"
 							value="<c:out value="${sessionScope.messageEntity.incidentNumber }" />"
-							required></td>
+							required maxlength="20"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">ステータス</th>
 						<td class="col-xs-9"><input type="text" name="status"
-							value="${sessionScope.messageEntity.status }" required></td>
+							value="${sessionScope.messageEntity.status }" required
+							maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">担当</th>
 						<td class="col-xs-9"><input type="text" name="cherger"
-							value="${sessionScope.messageEntity.cherger }" required></td>
+							value="${sessionScope.messageEntity.cherger }" required
+							maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">発生日/報告受領日</th>
@@ -55,17 +56,20 @@
 					<tr>
 						<th class="info col-xs-3">曜日</th>
 						<td class="col-xs-9"><input type="text" name="day"
-							value="${sessionScope.messageEntity.day }" required></td>
+							value="${sessionScope.messageEntity.day }" required
+							maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">詳細内容</th>
 						<td class="col-xs-9"><input type="text" name="detail"
-							value="${sessionScope.messageEntity.detail }" required></td>
+							value="${sessionScope.messageEntity.detail }" required
+							maxlength="1500"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">TEC通知</th>
 						<td class="col-xs-9"><input type="text" name="tecAlert"
-							value="${sessionScope.messageEntity.tecAlert }" required></td>
+							value="${sessionScope.messageEntity.tecAlert }" required
+							maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">発生時刻</th>
@@ -75,45 +79,52 @@
 					<tr>
 						<th class="info col-xs-3">発生ノード/系列</th>
 						<td class="col-xs-9"><input type="text" name="nodeName"
-							value="${sessionScope.messageEntity.nodeName }" required></td>
+							value="${sessionScope.messageEntity.nodeName }" required
+							maxlength="20"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">プロダクト名/モジュール名</th>
 						<td class="col-xs-9"><input type="text" name="productName"
-							value="${sessionScope.messageEntity.productName }" required></td>
+							value="${sessionScope.messageEntity.productName }" required
+							maxlength="20"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">初動対応</th>
 						<td class="col-xs-9"><input type="text" name="content"
-							value="${sessionScope.messageEntity.content }" required></td>
+							value="${sessionScope.messageEntity.content }" required
+							maxlength="1500"></td>
 					</tr>
 					<tr>
 
 						<th class="info col-xs-3">稼働確認結果</th>
 						<td class="col-xs-9"><input type="text" name="confirmResult"
-							value="${sessionScope.messageEntity.confirmResult }" required></td>
+							value="${sessionScope.messageEntity.confirmResult }" required
+							maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">取引確認結果</th>
 						<td class="col-xs-9"><input type="text"
 							name="transactionConfirm"
 							value="${sessionScope.messageEntity.transactionConfirm }"
-							required></td>
+							required maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">ユーザ影響有無</th>
 						<td class="col-xs-9"><input type="text" name="userHermress"
-							value="${sessionScope.messageEntity.userHermress }" required></td>
+							value="${sessionScope.messageEntity.userHermress }" required
+							maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">HWエラー有無</th>
 						<td class="col-xs-9"><input type="text" name="hwError"
-							value="${sessionScope.messageEntity.hwError }" required></td>
+							value="${sessionScope.messageEntity.hwError }" required
+							maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">原因/トレース状況</th>
 						<td class="col-xs-9"><input type="text" name="cause"
-							value="${sessionScope.messageEntity.cause }" required></td>
+							value="${sessionScope.messageEntity.cause }" required
+							maxlength="1500"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">復旧確認時刻</th>
@@ -123,18 +134,21 @@
 					<tr>
 						<th class="info col-xs-3">暫定対応</th>
 						<td class="col-xs-9"><input type="text" name="coverContent"
-							value="${sessionScope.messageEntity.coverContent }" required></td>
+							value="${sessionScope.messageEntity.coverContent }" required
+							maxlength="1500"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">運用向け報告<br>①問題有無②対応状況③手順書修正
 						</th>
 						<td class="col-xs-9"><input type="text" name="reportForRun"
-							value="${sessionScope.messageEntity.reportForRun }" required></td>
+							value="${sessionScope.messageEntity.reportForRun }" required
+							maxlength="10"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">本格対応</th>
 						<td class="col-xs-9"><input type="text" name="coverPlan"
-							value="${sessionScope.messageEntity.coverPlan }" required></td>
+							value="${sessionScope.messageEntity.coverPlan }" required
+							maxlength="1500"></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">対応予定日/リリース予定日</th>

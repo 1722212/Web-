@@ -23,7 +23,7 @@
 	<div class="container">
 		<h3>メニュー画面です</h3>
 
-		<a href="ShowErrorSamary">エラーサマリ</a> <a
+		<a href="ShowErrorSamary">エラーサマリ</a><br> <a
 			href="ShowInputErrorSamaryServlet">エラーサマリ登録画面</a>
 	</div>
 </body>

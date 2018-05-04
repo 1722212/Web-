@@ -21,13 +21,13 @@
 </head>
 <body>
 	<div class="container">
-		<%-- エラーメッセージ --%>
-		<span style="color: #ff0000;"><c:out
-				value="${requestScope.errorMessage }" /></span>
+
 
 		<h3>メッセージ編集完了</h3>
-		<div class="container">編集が完了しました</div>
-		<br> <br> <a href="ShowErrorSamary">一覧画面へ</a> <br> <a
+		<%-- エラーメッセージ --%>
+		<span style="color: #ff0000;"><c:out
+				value="${requestScope.errorMessage }" /></span> 編集が完了しました <br> <br>
+		<a href="ShowErrorSamary">一覧画面へ</a> <br> <a
 			href="ShowMenuServlet">メニューへ戻る</a>
 	</div>
 </body>

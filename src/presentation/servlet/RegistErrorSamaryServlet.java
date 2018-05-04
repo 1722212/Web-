@@ -38,14 +38,34 @@ public class RegistErrorSamaryServlet extends HttpServlet {
 		MessageLogic messageLogic = new MessageLogic();
 		try {
 			messageLogic.registMessage(messageEntity);
+
 		} catch (SQLException e) {
 			// エラーメッセージをリクエストに登録
 			String errorMessage = e.getMessage();
 			request.setAttribute("errorMessage", errorMessage);
-			// エラーサマリ表示画面へフォワード
-			request.getRequestDispatcher(Constance.SHOW_INPUT_ERROR_SAMARY_JSP).forward(request, response);
-			e.printStackTrace();
-			return;
+
+			// 一意性制約違反
+			if (e.getErrorCode() == 1) {
+				request.setAttribute("errorMessage", "入力したインシデント番号はすでに存在します");
+				// エラーサマリ表示画面へフォワード
+				request.getRequestDispatcher(Constance.SHOW_INPUT_ERROR_SAMARY_JSP).forward(request, response);
+				e.printStackTrace();
+				return;
+
+			} // 文字数エラー
+			else if (e.getErrorCode() == 12899) {
+				request.setAttribute("errorMessage", "文字数が不正です。入力文字数を確認してください");
+				// エラーサマリ表示画面へフォワード
+				request.getRequestDispatcher(Constance.SHOW_INPUT_ERROR_SAMARY_JSP).forward(request, response);
+				e.printStackTrace();
+				return;
+
+			} else {
+				// エラーサマリ表示画面へフォワード
+				request.getRequestDispatcher(Constance.SHOW_INPUT_ERROR_SAMARY_JSP).forward(request, response);
+				e.printStackTrace();
+				return;
+			}
 		}
 
 		// 入力内容をセッションから削除

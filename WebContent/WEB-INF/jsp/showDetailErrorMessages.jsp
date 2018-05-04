@@ -21,11 +21,12 @@
 </head>
 <body>
 	<div class="container">
+
+
+		<h3>詳細メッセージ一覧</h3>
 		<%-- エラーメッセージ --%>
 		<span style="color: #ff0000;"><c:out
 				value="${requestScope.errorMessage }" /></span>
-
-		<h3>詳細メッセージ一覧</h3>
 		<div class="table-responsive">
 			<table border="1"
 				class="table table-striped table-hover table-condensed">

@@ -21,11 +21,10 @@
 </head>
 <body>
 	<div class="container">
+		<h3>メッセージ編集</h3>
 		<%-- エラーメッセージ --%>
 		<span style="color: #ff0000;"><c:out
 				value="${requestScope.errorMessage }" /></span>
-
-		<h3>メッセージ編集</h3>
 		<div class="table-responsive">
 			<form action="ModifyErrorSamaryServlet" method="post">
 				<table border="1"
@@ -42,107 +41,115 @@
 						<tr>
 							<th class="info col-xs-3">ステータス</th>
 							<td class=" col-xs-9"><input type="text" name="status"
-								value="<c:out value="${message.status }" />"></td>
+								value="<c:out value="${message.status }" />" maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">担当</th>
 							<td class=" col-xs-9"><input type="text" name="cherger"
-								value="<c:out value="${message.cherger }" />"></td>
+								value="<c:out value="${message.cherger }" />" maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">発生日/報告受領日</th>
 							<td class=" col-xs-9"><input type="date" name="incidentDate"
-								value="<c:out value="${message.incidentDate }" />"></td>
+								value="<c:out value="${message.incidentDate }" />"
+								maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">曜日</th>
 							<td class=" col-xs-9"><input type="text" name="day"
-								value="<c:out value="${message.day }" />"></td>
+								value="<c:out value="${message.day }" />" maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">詳細内容</th>
 							<td class=" col-xs-9"><input type="text" name="detail"
-								value="<c:out value="${message.detail }" />"></td>
+								value="<c:out value="${message.detail }" />" maxlength="1500"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">TEC通知</th>
 							<td class=" col-xs-9"><input type="text" name="tecAlert"
-								value="<c:out value="${message.tecAlert }" />"></td>
+								value="<c:out value="${message.tecAlert }" />" maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">発生時刻</th>
 							<td class=" col-xs-9"><input type="time" name="incidentTime"
-								value="<c:out value="${message.incidentTime }" />"></td>
+								value="<c:out value="${message.incidentTime }" />"
+								maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">発生ノード/系列</th>
 							<td class=" col-xs-9"><input type="text" name="nodeName"
-								value="<c:out value="${message.nodeName }" />"></td>
+								value="<c:out value="${message.nodeName }" />" maxlength="20"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">プロダクト名/モジュール名</th>
 							<td class=" col-xs-9"><input type="text" name="productName"
-								value="<c:out value="${message.productName }" />"></td>
+								value="<c:out value="${message.productName }" />" maxlength="20"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">初動対応</th>
 							<td class=" col-xs-9"><input type="text" name="content"
-								value="<c:out value="${message.content }" />"></td>
+								value="<c:out value="${message.content }" />" maxlength="1500"></td>
 						</tr>
 						<tr>
 
 							<th class="info col-xs-3">稼働確認結果</th>
 							<td class=" col-xs-9"><input type="text"
 								name="confirmResult"
-								value="<c:out value="${message.confirmResult }" />"></td>
+								value="<c:out value="${message.confirmResult }" />"
+								maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">取引確認結果</th>
 							<td class=" col-xs-9"><input type="text"
 								name="transactionConfirm"
-								value="<c:out value="${message.transactionConfirm }" />"></td>
+								value="<c:out value="${message.transactionConfirm }" />"
+								maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">ユーザ影響有無</th>
 							<td class=" col-xs-9"><input type="text" name="userHermress"
-								value="<c:out value="${message.userHermress }" />"></td>
+								value="<c:out value="${message.userHermress }" />"
+								maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">HWエラー有無</th>
 							<td class=" col-xs-9"><input type="text" name="hwError"
-								value="<c:out value="${message.hwError }" />"></td>
+								value="<c:out value="${message.hwError }" />" maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">原因/トレース状況</th>
 							<td class=" col-xs-9"><input type="text" name="cause"
-								value="<c:out value="${message.cause }" />"></td>
+								value="<c:out value="${message.cause }" />" maxlength="1500"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">復旧確認時刻</th>
 							<td class=" col-xs-9"><input type="time" name="recoverTime"
-								value="<c:out value="${message.recoverTime }" />"></td>
+								value="<c:out value="${message.recoverTime }" />" maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">暫定対応</th>
 							<td class=" col-xs-9"><input type="text" name="coverContent"
-								value="<c:out value="${message.coverContent }" />"></td>
+								value="<c:out value="${message.coverContent }" />"
+								maxlength="1500"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">運用向け報告<br>①問題有無②対応状況③手順書修正
 							</th>
 							<td class=" col-xs-9"><input type="text" name="reportForRun"
-								value="<c:out value="${message.reportForRun }" />"></td>
+								value="<c:out value="${message.reportForRun }" />"
+								maxlength="10"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">本格対応</th>
 							<td class=" col-xs-9"><input type="text" name="coverPlan"
-								value="<c:out value="${message.coverPlan }" />"></td>
+								value="<c:out value="${message.coverPlan }" />" maxlength="1500"></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">対応予定日/リリース予定日</th>
 							<td class=" col-xs-9"><input type="date"
 								name="coverPlanDate"
-								value="<c:out value="${message.coverPlanDate }" />"></td>
+								value="<c:out value="${message.coverPlanDate }" />"
+								maxlength="10"></td>
 						</tr>
 					</c:forEach>
 				</table>

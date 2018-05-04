@@ -21,12 +21,12 @@
 </head>
 <body>
 	<div class="container">
+
+		<h3>エラーサマリ登録完了画面</h3>
 		<%-- エラーメッセージ --%>
 		<span style="color: #ff0000;"><c:out
-				value="${requestScope.errorMessage }" /></span>
-		<h3>エラーサマリ登録完了画面</h3>
-
-		登録が完了しました <a href="ShowErrorSamary">エラーサマリ一覧画面へ</a> <br> <a
+				value="${requestScope.errorMessage }" /></span> 登録が完了しました <a
+			href="ShowErrorSamary">エラーサマリ一覧画面へ</a> <br> <a
 			href="ShowMenuServlet">メニュー画面へ</a>
 	</div>
 </body>

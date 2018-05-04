@@ -21,11 +21,11 @@
 </head>
 <body>
 	<div class="container">
+
+		<h3>入力内容確認画面</h3>
 		<%-- エラーメッセージ --%>
 		<span style="color: #ff0000;"><c:out
 				value="${requestScope.errorMessage }" /></span>
-
-		<h3>入力内容確認画面</h3>
 
 		<form action="RegistErrorSamaryServlet" method="post">
 			<table border="1" class="table table-striped">

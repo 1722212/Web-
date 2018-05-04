@@ -2,6 +2,8 @@ package presentation.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -127,13 +129,30 @@ public class ModifyErrorSamaryServlet extends HttpServlet {
 		try {
 			messageLogic.modifyMessage(messageEntity, incidentNumber);
 		} catch (SQLException e) {
+
+			// メッセージエンティティをリストに追加
+			List<MessageEntity> messageEntityList = new ArrayList<>();
+			messageEntityList.add(messageEntity);
+			// 入力内容をリクエストに登録
+			request.setAttribute("messageEntityList", messageEntityList);
 			// エラーメッセージをリクエストに登録
 			String errorMessage = e.getMessage();
 			request.setAttribute("errorMessage", errorMessage);
-			// エラーサマリ編集画面へフォワード
-			request.getRequestDispatcher(Constance.SHOW_MODIFY_MESSAGE_JSP).forward(request, response);
-			e.printStackTrace();
-			return;
+
+			// 文字数エラー
+			if (e.getErrorCode() == 12899) {
+				request.setAttribute("errorMessage", "文字数が不正です。入力文字数を確認してください");
+				// エラーサマリ表示画面へフォワード
+				request.getRequestDispatcher(Constance.SHOW_MODIFY_MESSAGE_JSP).forward(request, response);
+				e.printStackTrace();
+				return;
+
+			} else {
+				// エラーサマリ編集画面へフォワード
+				request.getRequestDispatcher(Constance.SHOW_MODIFY_MESSAGE_JSP).forward(request, response);
+				e.printStackTrace();
+				return;
+			}
 		}
 
 		// メッセージ編集完了画面へフォワード

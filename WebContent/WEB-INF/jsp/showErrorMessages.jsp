@@ -22,11 +22,10 @@
 <body>
 	<div class="container">
 		<div class="container">
+			<h2>エラーサマリ</h2>
 			<%-- エラーメッセージ --%>
 			<span style="color: #ff0000;"><c:out
 					value="${requestScope.errorMessage }" /></span>
-
-			<h2>エラーサマリ</h2>
 			<form action="ShowErrorSamary" method="post">
 
 				<h3>検索ボックス</h3>
