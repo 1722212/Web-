@@ -7,19 +7,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%-- IEブラウザ依存処理 --%>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<%-- レスポンシブデザインに対応 --%>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- BootstrapのCSS読み込み -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery読み込み -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<!-- BootstrapのJS読み込み -->
+<script src="js/bootstrap.min.js"></script>
 <title>登録完了画面</title>
 </head>
 <body>
-	<%-- エラーメッセージ --%>
-	<span style="color: #ff0000;"><c:out
-			value="${requestScope.errorMessage }" /></span>
-	<h3>エラーサマリ登録完了画面</h3>
+	<div class="container">
+		<%-- エラーメッセージ --%>
+		<span style="color: #ff0000;"><c:out
+				value="${requestScope.errorMessage }" /></span>
+		<h3>エラーサマリ登録完了画面</h3>
 
-	登録が完了しました
-
-	<a href="ShowErrorSamary">エラーサマリ一覧画面へ</a>
-	<br>
-	<a href="ShowMenuServlet">メニュー画面へ</a>
-
+		登録が完了しました <a href="ShowErrorSamary">エラーサマリ一覧画面へ</a> <br> <a
+			href="ShowMenuServlet">メニュー画面へ</a>
+	</div>
 </body>
 </html>

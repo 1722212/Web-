@@ -12,25 +12,23 @@
 <%-- レスポンシブデザインに対応 --%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- BootstrapのCSS読み込み -->
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery読み込み -->
-<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 <!-- BootstrapのJS読み込み -->
-<script src="/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <title>メッセージ編集完了画面</title>
 </head>
 <body>
-	<%-- エラーメッセージ --%>
-	<span style="color: #ff0000;"><c:out
-			value="${requestScope.errorMessage }" /></span>
+	<div class="container">
+		<%-- エラーメッセージ --%>
+		<span style="color: #ff0000;"><c:out
+				value="${requestScope.errorMessage }" /></span>
 
-	<h3>メッセージ編集完了</h3>
-	<div class="container">編集が完了しました</div>
-	<br>
-	<br>
-	<a href="ShowErrorSamary">一覧画面へ</a>
-	<br>
-	<a href="ShowMenuServlet">メニューへ戻る</a>
-
+		<h3>メッセージ編集完了</h3>
+		<div class="container">編集が完了しました</div>
+		<br> <br> <a href="ShowErrorSamary">一覧画面へ</a> <br> <a
+			href="ShowMenuServlet">メニューへ戻る</a>
+	</div>
 </body>
 </html>

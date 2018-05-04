@@ -7,14 +7,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%-- IEブラウザ依存処理 --%>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<%-- レスポンシブデザインに対応 --%>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- BootstrapのCSS読み込み -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery読み込み -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<!-- BootstrapのJS読み込み -->
+<script src="js/bootstrap.min.js"></script>
 <title>メニュー画面</title>
 </head>
 <body>
-	<h3>メニュー画面です</h3>
+	<div class="container">
+		<h3>メニュー画面です</h3>
 
-	<a href="ShowErrorSamary">エラーサマリ</a>
-
-	<a href="ShowInputErrorSamaryServlet">エラーサマリ登録画面</a>
-
+		<a href="ShowErrorSamary">エラーサマリ</a> <a
+			href="ShowInputErrorSamaryServlet">エラーサマリ登録画面</a>
+	</div>
 </body>
 </html>

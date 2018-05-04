@@ -33,10 +33,18 @@ public class ModifyErrorSamaryServlet extends HttpServlet {
 		String status = request.getParameter("status");
 		String cherger = request.getParameter("cherger");
 		String incidentDate = request.getParameter("incidentDate");
+		// 入力内容がない場合は”-”を入れる
+		if (incidentDate.isEmpty()) {
+			incidentDate = "-";
+		}
 		String day = request.getParameter("day");
 		String detail = request.getParameter("detail");
 		String tecAlert = request.getParameter("tecAlert");
 		String incidentTime = request.getParameter("incidentTime");
+		// 入力内容がない場合は”-”を入れる
+		if (incidentTime.isEmpty()) {
+			incidentTime = "-";
+		}
 		String nodeName = request.getParameter("nodeName");
 		String productName = request.getParameter("productName");
 		String content = request.getParameter("content");
@@ -46,11 +54,18 @@ public class ModifyErrorSamaryServlet extends HttpServlet {
 		String hwError = request.getParameter("hwError");
 		String cause = request.getParameter("cause");
 		String recoverTime = request.getParameter("recoverTime");
+		// 入力内容がない場合は”-”を入れる
+		if (recoverTime.isEmpty()) {
+			recoverTime = "-";
+		}
 		String coverContent = request.getParameter("coverContent");
 		String reportForRun = request.getParameter("reportForRun");
 		String coverPlan = request.getParameter("coverPlan");
 		String coverPlanDate = request.getParameter("coverPlanDate");
-
+		// 入力内容がない場合は”-”を入れる
+		if (coverPlanDate.isEmpty()) {
+			coverPlanDate = "-";
+		}
 		// Formにセット
 		MessageForm messageForm = new MessageForm();
 
