@@ -139,8 +139,9 @@
 
 			</table>
 
-			<input type="submit" value="登録"><br> <a
-				href="ShowInputErrorSamaryServlet">入力画面へ戻る</a>
+			<button type="submit" value="登録" class="btn btn-lg btn-primary">登録する</button>
+			<br>
+			<br> <a href="ShowInputErrorSamaryServlet">入力画面へ戻る</a>
 
 		</form>
 	</div>

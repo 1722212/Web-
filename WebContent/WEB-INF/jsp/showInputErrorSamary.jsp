@@ -61,9 +61,9 @@
 					</tr>
 					<tr>
 						<th class="info col-xs-3">詳細内容</th>
-						<td class="col-xs-9"><input type="text" name="detail"
-							value="${sessionScope.messageEntity.detail }" required
-							maxlength="1500"></td>
+						<td class="col-xs-9"><textarea name="detail" required
+								maxlength="1500"><c:out
+									value="${sessionScope.messageEntity.detail }" /> </textarea></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">TEC通知</th>
@@ -90,9 +90,9 @@
 					</tr>
 					<tr>
 						<th class="info col-xs-3">初動対応</th>
-						<td class="col-xs-9"><input type="text" name="content"
-							value="${sessionScope.messageEntity.content }" required
-							maxlength="1500"></td>
+						<td class="col-xs-9"><textarea name="content" required
+								maxlength="1500"><c:out
+									value="${sessionScope.messageEntity.content }" /></textarea></td>
 					</tr>
 					<tr>
 
@@ -122,9 +122,9 @@
 					</tr>
 					<tr>
 						<th class="info col-xs-3">原因/トレース状況</th>
-						<td class="col-xs-9"><input type="text" name="cause"
-							value="${sessionScope.messageEntity.cause }" required
-							maxlength="1500"></td>
+						<td class="col-xs-9"><textarea name="cause" required
+								maxlength="1500"><c:out
+									value="${sessionScope.messageEntity.cause }" /></textarea></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">復旧確認時刻</th>
@@ -133,9 +133,9 @@
 					</tr>
 					<tr>
 						<th class="info col-xs-3">暫定対応</th>
-						<td class="col-xs-9"><input type="text" name="coverContent"
-							value="${sessionScope.messageEntity.coverContent }" required
-							maxlength="1500"></td>
+						<td class="col-xs-9"><textarea name="coverContent" required
+								maxlength="1500"><c:out
+									value="${sessionScope.messageEntity.coverContent }" /></textarea></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">運用向け報告<br>①問題有無②対応状況③手順書修正
@@ -146,9 +146,9 @@
 					</tr>
 					<tr>
 						<th class="info col-xs-3">本格対応</th>
-						<td class="col-xs-9"><input type="text" name="coverPlan"
-							value="${sessionScope.messageEntity.coverPlan }" required
-							maxlength="1500"></td>
+						<td class="col-xs-9"><textarea name="coverPlan" required
+								maxlength="1500"><c:out
+									value="${sessionScope.messageEntity.coverPlan }" /></textarea></td>
 					</tr>
 					<tr>
 						<th class="info col-xs-3">対応予定日/リリース予定日</th>
@@ -158,10 +158,10 @@
 
 				</table>
 			</div>
-			<br>
 			<button type="submit" value="確認画面へ" class="btn btn-lg btn-primary">確認画面へ</button>
-			<br> <br> <a href="ShowErrorSamary">一覧画面へ</a><br> <a
-				href="ShowMenuServlet">メニューへ</a>
+			<br> <br> <a href="ShowErrorSamary"
+				class="btn btn-lg btn-warning">一覧画面へ</a>&nbsp;&nbsp;&nbsp;<a
+				href="ShowMenuServlet">メニューへ戻る</a>
 		</form>
 	</div>
 

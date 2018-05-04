@@ -61,8 +61,8 @@
 						</tr>
 						<tr>
 							<th class="info col-xs-3">詳細内容</th>
-							<td class=" col-xs-9"><input type="text" name="detail"
-								value="<c:out value="${message.detail }" />" maxlength="1500"></td>
+							<td class=" col-xs-9"><textarea name="detail"
+									maxlength="1500"><c:out value="${message.detail }" /></textarea></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">TEC通知</th>
@@ -87,8 +87,9 @@
 						</tr>
 						<tr>
 							<th class="info col-xs-3">初動対応</th>
-							<td class=" col-xs-9"><input type="text" name="content"
-								value="<c:out value="${message.content }" />" maxlength="1500"></td>
+							<td class=" col-xs-9"><textarea name="content"
+									" maxlength="1500"><c:out
+										value="${message.content }" /></textarea></td>
 						</tr>
 						<tr>
 
@@ -118,8 +119,8 @@
 						</tr>
 						<tr>
 							<th class="info col-xs-3">原因/トレース状況</th>
-							<td class=" col-xs-9"><input type="text" name="cause"
-								value="<c:out value="${message.cause }" />" maxlength="1500"></td>
+							<td class=" col-xs-9"><textarea name="cause"
+									maxlength="1500"><c:out value="${message.cause }" /></textarea></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">復旧確認時刻</th>
@@ -128,9 +129,9 @@
 						</tr>
 						<tr>
 							<th class="info col-xs-3">暫定対応</th>
-							<td class=" col-xs-9"><input type="text" name="coverContent"
-								value="<c:out value="${message.coverContent }" />"
-								maxlength="1500"></td>
+							<td class=" col-xs-9"><textarea name="coverContent"
+									maxlength="1500"><c:out
+										value="${message.coverContent }" /></textarea></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">運用向け報告<br>①問題有無②対応状況③手順書修正
@@ -141,8 +142,9 @@
 						</tr>
 						<tr>
 							<th class="info col-xs-3">本格対応</th>
-							<td class=" col-xs-9"><input type="text" name="coverPlan"
-								value="<c:out value="${message.coverPlan }" />" maxlength="1500"></td>
+							<td class=" col-xs-9"><textarea name="coverPlan"
+									maxlength="1500"><c:out
+										value="${message.coverPlan }" /></textarea></td>
 						</tr>
 						<tr>
 							<th class="info col-xs-3">対応予定日/リリース予定日</th>
@@ -154,11 +156,11 @@
 					</c:forEach>
 				</table>
 
-				<button type="submit" value="編集" class="btn btn-lg btn-primary">編集</button>
+				<button type="submit" value="編集" class="btn btn-lg btn-primary">編集する</button>
 			</form>
 
 		</div>
-		<br> <br> <a href="ShowErrorSamary">一覧画面へ</a> <br> <a
+		<br> <a href="ShowErrorSamary" class="btn btn-lg btn-warning">一覧画面へ</a>&nbsp;&nbsp;&nbsp;<a
 			href="ShowMenuServlet">メニューへ戻る</a>
 	</div>
 </body>

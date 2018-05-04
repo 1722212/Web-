@@ -132,14 +132,11 @@
 			</div>
 			<input type="hidden" name="incidentNumber"
 				value="<c:out value="${requestScope.incidentNumber }" />">
-			<button type="submit" value="削除" class="btn btn-lg btn-primary">削除</button>
+			<button type="submit" value="削除" class="btn btn-lg btn-primary">削除する</button>
 		</form>
-	</div>
-	<br>
-	<br>
-	<a href="ShowErrorSamary">一覧画面へ</a>
-	<br>
-	<a href="ShowMenuServlet">メニューへ戻る</a>
 
+		<br> <a href="ShowErrorSamary" class="btn btn-lg btn-warning">一覧画面へ</a>&nbsp;&nbsp;&nbsp;<a
+			href="ShowMenuServlet">メニューへ戻る</a>
+	</div>
 </body>
 </html>

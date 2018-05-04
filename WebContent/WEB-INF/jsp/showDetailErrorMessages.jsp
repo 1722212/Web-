@@ -126,8 +126,9 @@
 			</table>
 
 		</div>
-		<br> <br> <a href="ShowErrorSamary">一覧画面へ</a> <br> <a
-			href="ShowMenuServlet">メニューへ戻る</a>
+		<br> <a href="ShowErrorSamary" class="btn btn-lg btn-primary">一覧画面へ</a>
+		<br>
+		<br> <a href="ShowMenuServlet">メニューへ戻る</a>
 	</div>
 </body>
 </html>

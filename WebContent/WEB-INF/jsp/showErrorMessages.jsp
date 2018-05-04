@@ -21,88 +21,92 @@
 </head>
 <body>
 	<div class="container">
-		<div class="container">
-			<h2>エラーサマリ</h2>
-			<%-- エラーメッセージ --%>
-			<span style="color: #ff0000;"><c:out
-					value="${requestScope.errorMessage }" /></span>
-			<form action="ShowErrorSamary" method="post">
+		<h2>エラーサマリ</h2>
+		<%-- エラーメッセージ --%>
+		<span style="color: #ff0000;"><c:out
+				value="${requestScope.errorMessage }" /></span>
+		<form action="ShowErrorSamary" method="post">
 
-				<h3>検索ボックス</h3>
-				<div class="table-responsive">
-					<table class="table table-condensed">
-						<tr>
-							<td class="col-xs-3">発生ノード/系列</td>
-							<td class="col-xs-9"><input type="text" name="nodeName"
-								value="<c:out value="${requestScope.searchKeyBean.nodeName }" />"></td>
+			<h3>検索ボックス</h3>
+			<div class="table-responsive">
+				<table class="table table-condensed">
+					<tr>
+						<td class="col-xs-3">発生ノード/系列</td>
+						<td class="col-xs-9"><input type="text" name="nodeName"
+							value="<c:out value="${requestScope.searchKeyBean.nodeName }" />"
+							size="60"></td>
+					</tr>
+					<tr>
+						<td class="col-xs-3">プロダクト名<br>/モジュール名
+						</td>
+						<td class="col-xs-9"><input type="text" name="productName"
+							value="<c:out value="${requestScope.searchKeyBean.productName }" />"
+							size="60"></td>
+					</tr>
+					<tr>
+						<td class="col-xs-3">詳細内容</td>
+						<td class="col-xs-9"><input type="text" name="detail"
+							value="<c:out value="${requestScope.searchKeyBean.detail }" />"
+							size="60"></td>
+					</tr>
+				</table>
+			</div>
+			<button type="submit" value="検索" class="btn btn-lg btn-primary">検索</button>
+			&nbsp;&nbsp;&nbsp;<a href="ShowErrorSamary">全件表示する</a>
+		</form>
+
+		<form action="SelectProcessServlet" method="post">
+
+			<h3>メッセージ一覧</h3>
+			<div class="table-responsive">
+				<table border="1"
+					class="table table-striped table-hover table-condensed">
+					<thead>
+						<tr class="info">
+							<th class="col-xs-1">選択</th>
+							<th class="col-xs-1">発生日/報告受領日</th>
+							<th class="col-xs-4">詳細内容</th>
+							<th class="col-xs-1">発生時刻</th>
+							<th class="col-xs-1">発生ノード<br>/系列
+							</th>
+							<th class="col-xs-1">プロダクト名<br>/モジュール名
+							</th>
+							<th class="col-xs-3">初動対応</th>
+
 						</tr>
-						<tr>
-							<td class="col-xs-3">プロダクト名/モジュール名</td>
-							<td class="col-xs-9"><input type="text" name="productName"
-								value="<c:out value="${requestScope.searchKeyBean.productName }" />"></td>
-						</tr>
-						<tr>
-							<td class="col-xs-3">詳細内容</td>
-							<td class="col-xs-9"><input type="text" name="detail"
-								value="<c:out value="${requestScope.searchKeyBean.detail }" />"></td>
-						</tr>
-					</table>
-				</div>
-				<br>
-				<button type="submit" value="検索" class="btn btn-lg btn-primary">検索</button>
-				<a href="ShowErrorSamary">全件表示する</a>
-			</form>
-
-			<form action="SelectProcessServlet" method="post">
-
-				<h3>メッセージ一覧</h3>
-				<div class="table-responsive">
-					<table border="1"
-						class="table table-striped table-hover table-condensed">
-						<thead>
-							<tr class="info">
-								<th class="col-xs-1">選択</th>
-								<th class="col-xs-1">発生日/報告受領日</th>
-								<th class="col-xs-4">詳細内容</th>
-								<th class="col-xs-1">発生時刻</th>
-								<th class="col-xs-1">発生ノード<br>/系列
-								</th>
-								<th class="col-xs-1">プロダクト名<br>/モジュール名
-								</th>
-								<th class="col-xs-3">初動対応</th>
-
+					</thead>
+					<tbody>
+						<c:forEach var="message"
+							items="${sessionScope.messageEntityList }">
+							<tr>
+								<td><input type="radio" name="selectIncidentNumber"
+									value="${message.incidentNumber }"></td>
+								<td><c:out value="${message.incidentDate }" /></td>
+								<td><c:out value="${message.detail }" /></td>
+								<td><c:out value="${message.incidentTime }" /></td>
+								<td><c:out value="${message.nodeName }" /></td>
+								<td><c:out value="${message.productName }" /></td>
+								<td><c:out value="${message.content }" /></td>
 							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="message"
-								items="${sessionScope.messageEntityList }">
-								<tr>
-									<td><input type="radio" name="selectIncidentNumber"
-										value="${message.incidentNumber }"></td>
-									<td><c:out value="${message.incidentDate }" /></td>
-									<td><c:out value="${message.detail }" /></td>
-									<td><c:out value="${message.incidentTime }" /></td>
-									<td><c:out value="${message.nodeName }" /></td>
-									<td><c:out value="${message.productName }" /></td>
-									<td><c:out value="${message.content }" /></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-				<br>
-				<button type="submit" value="詳細" name="detail"
-					class="btn btn-lg btn-primary">詳細</button>
-				<br> <br>
-				<button type="submit" value="編集" name="modify"
-					class="btn btn-lg btn-success">編集</button>
-				<button type="submit" value="削除" name="delete"
-					class=" btn btn-lg btn-danger">削除</button>
-				<button type="submit" value="新規登録" name="regist"
-					class="btn btn-lg btn-warning">新規登録</button>
-			</form>
-			<br> <a href="ShowMenuServlet">メニューへ戻る</a>
-		</div>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+			<br>
+			<button type="submit" value="詳細" name="detail"
+				class="btn btn-lg btn-primary">詳細画面へ</button>
+			<br> <br>
+			<button type="submit" value="編集" name="modify"
+				class="btn btn-lg btn-success">編集画面へ</button>
+			&nbsp;
+			<button type="submit" value="削除" name="delete"
+				class=" btn btn-lg btn-danger">削除画面へ</button>
+			&nbsp;
+			<button type="submit" value="新規登録" name="regist"
+				class="btn btn-lg btn-warning">新規登録画面へ</button>
+		</form>
+		<br> <a href="ShowMenuServlet">メニューへ戻る</a>
+
 	</div>
 </body>
 </html>
