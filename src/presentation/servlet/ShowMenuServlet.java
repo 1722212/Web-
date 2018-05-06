@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import presentation.util.Constance;
+
 /**
  * メニュー画面を表示するサーブレット
  */
@@ -30,7 +32,7 @@ public class ShowMenuServlet extends HttpServlet {
 		session.removeAttribute("messageEntity");
 
 		// メニュー画面へフォワード
-		request.getRequestDispatcher("/WEB-INF/jsp/showMenu.jsp").forward(request, response);
+		request.getRequestDispatcher(Constance.SHOW_MENU_JSP).forward(request, response);
 
 	}
 }

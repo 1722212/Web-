@@ -36,15 +36,36 @@ public class SelectProcessServlet extends HttpServlet {
 
 		// どのボタンが選択されたかを判断
 		if (detail != null) {
+			// ラジオボタンが選択されていない場合は、一覧画面へフォワード
+			if (selectIncidentNumber == null || selectIncidentNumber.isEmpty()) {
+				// エラーメッセージを登録
+				request.setAttribute("errorMessage", "エラーメッセージが選択されていません");
+				request.getRequestDispatcher(Constance.SHOW_ERROR_MESSAGES_JSP).forward(request, response);
+				return;
+			}
 			// 詳細画面へフォワード
 			request.getRequestDispatcher("ShowDetailErrorSamary").forward(request, response);
 			return;
 
 		} else if (modify != null) {
+			// ラジオボタンが選択されていない場合は、一覧画面へフォワード
+			if (selectIncidentNumber == null || selectIncidentNumber.isEmpty()) {
+				// エラーメッセージを登録
+				request.setAttribute("errorMessage", "エラーメッセージが選択されていません");
+				request.getRequestDispatcher(Constance.SHOW_ERROR_MESSAGES_JSP).forward(request, response);
+				return;
+			}
 			// 編集画面へフォワード
 			request.getRequestDispatcher("ShowModifyErrorSamaryServlet").forward(request, response);
 			return;
 		} else if (delete != null) {
+			// ラジオボタンが選択されていない場合は、一覧画面へフォワード
+			if (selectIncidentNumber == null || selectIncidentNumber.isEmpty()) {
+				// エラーメッセージを登録
+				request.setAttribute("errorMessage", "エラーメッセージが選択されていません");
+				request.getRequestDispatcher(Constance.SHOW_ERROR_MESSAGES_JSP).forward(request, response);
+				return;
+			}
 			// 削除画面へフォワード
 			request.getRequestDispatcher("ShowDeleteErrorSamaryServlet").forward(request, response);
 			return;

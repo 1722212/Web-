@@ -9,6 +9,11 @@ package presentation.util;
 public class Constance {
 
 	/**
+	 * メニュー画面のURL
+	 */
+	public static final String SHOW_MENU_JSP = "/WEB-INF/jsp/showMenu.jsp";
+
+	/**
 	 * エラーサマリ表示画面のURL
 	 */
 	public static final String SHOW_ERROR_MESSAGES_JSP = "/WEB-INF/jsp/showErrorMessages.jsp";
