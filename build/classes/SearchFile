@@ -1,0 +1,72 @@
+rem ********************************************************************************
+
+rem 各システムの運用手順書をファイル名で検索するバッチ処理
+
+rem ********************************************************************************
+
+@echo off
+
+:CODE0
+
+echo 検索するシステムを選択してください a：インバン		b：チャネ共		c：法人		d：テレバン		e：PBX		f：イン投
+rem 検索するシステムを要求し、変数に代入
+set /p SELECT_SYS=""
+
+rem 遅延環境変数に対応させる
+setlocal ENABLEDELAYEDEXPANSION
+
+rem "a"を選択した場合
+if %SELECT_SYS%==a (
+	rem 変数に"インバン"を代入
+	set TARGET_SYS=インバン
+	rem 入力内容を確認
+	echo 選択したシステムは!TARGET_SYS!です
+
+) else if %SELECT_SYS%==b (
+	rem 変数に"チャネ共"を代入
+	set TARGET_SYS=チャネ共
+	rem 入力内容を確認
+	echo 選択したシステムは!TARGET_SYS!です
+
+) else if %SELECT_SYS%==c (
+	rem 変数に"法人"を代入
+	set TARGET_SYS=法人
+	rem 入力内容を確認
+	echo 選択したシステムは!TARGET_SYS!です
+
+) else if %SELECT_SYS%==d (
+	rem 変数に"テレバン"を代入
+	set TARGET_SYS=テレバン
+	rem 入力内容を確認
+	echo 選択したシステムは!TARGET_SYS!です
+
+) else if %SELECT_SYS%==e (
+	rem 変数に"PBX"を代入
+	set TARGET_SYS=PBX
+	rem 入力内容を確認
+	echo 選択したシステムは!TARGET_SYS!です
+
+) else if %SELECT_SYS%==f (
+	rem 変数に"イン投"を代入
+	set TARGET_SYS=イン投
+	rem 入力内容を確認
+	echo 選択したシステムは!TARGET_SYS!です
+
+) else (
+	rem システム名の選択に戻る
+	goto CODE0
+	exit /b
+)
+rem 遅延環境変数対応終了
+endlocal
+
+rem テキストファイルからコピーする手順書名を読み取る
+for /f %%a in (C:\Users\Takayama\Desktop\運マニ_テストフォルダ\管理フォルダ\検索ファイル一覧.txt) do (
+
+	rem インバン下のフォルダのファイル一覧を取得
+	forfiles /s /c "cmd /c copy @file C:\Users\Takayama\Desktop\運マニ_テストフォルダ\貸出フォルダ" /p C:\Users\Takayama\Desktop\運マニ_テストフォルダ\マスタ\%TARGET_SYS% /m *%%a*
+)
+
+echo 処理を終了します　何か文字を入力してください
+set /p HOGE=""
+exit /b
